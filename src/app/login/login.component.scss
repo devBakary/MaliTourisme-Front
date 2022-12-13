@@ -1,0 +1,59 @@
+.Container
+{
+    background-image: url("/../assets/drapeau.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.ro1{
+    position: relative;
+    top: 10%;
+}
+.main
+{
+   margin-top: 80px;
+   box-shadow: -1px -1px 60px 10px black;
+   background: rgba(0,0,0,0.4);
+}
+.label{
+    font-weight: normal;
+    margin-top: 15px;
+    color: white;
+    font-size: 20px;
+}
+h3, h6{
+    color: white!important;
+}
+.form-control{
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid white;
+    font-size: 18px;
+    margin-top: 8px;
+    height: 40px;
+    color: white;
+}
+.btn{
+    border: 2px solid white;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.btn:hover{
+    background: #007bff;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    .ro1 {
+        // background-color: red;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        top: -8%;
+    }
+}
+

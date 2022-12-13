@@ -1,0 +1,138 @@
+.container-fluid{
+    padding-bottom: 20px;
+    background-color: white;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+.navbar {
+    background-color: #ebebeb;
+    font-size: 12px;
+    border-bottom: 1px solid #fff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.nav-pills .nav-link{
+    color: black !important;
+    text-align: center;
+}
+.nav-pills .nav-link.active,  .nav-pills .nav-link:hover{
+    color: #fff !important;
+    background-color: #ff6700 !important;
+}
+.navbar-toggler{
+    color: #ff6700 !important;
+    border-style: none;
+}
+
+
+/* ABOUT */
+.imgg{
+    background: rgba(0, 0, 0, 0.4) url('/../assets/pays4.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100%;
+}
+.button1{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    border: 1px solid white;
+    display: inline-block;
+    margin-top:  20px;
+    padding: 18px 50px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in 0s;
+}
+.button1:hover{
+    background: white;
+    color: #ff6700;
+    text-decoration: none;
+}
+
+// mes cards contenant les textes et la carte
+.card{
+    background: white!important;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    // height: 100px;
+}
+.p{
+    font-size: 20px;
+    color: black;
+    padding: 10px;
+    font-weight: 700;
+}
+.carte{
+    padding: 10px;
+}
+h1{
+    font-size: 78px
+}
+h6{
+    font-size: 32px
+}
+// -------------------------------------------
+
+
+
+// mes cards principales
+.blocs{
+    background: white!important;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    padding: 5px;
+}
+.img{
+    width: 100%;
+    max-height: 200px;
+}
+// Pour les nom pays et regions
+.span{
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+label{
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+// pour les autres attribut de la region
+span{
+    font-size: 16px;
+    color: black;
+}
+p{
+    font-size: 16px;
+    color: black;
+}
+.hr{
+    width: 90%;
+    color: white;
+    size: 2px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// .footer{
+//     height: 140px;
+// }
+.mail{
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 864px) {
+    .imgg {
+        background: rgba(233, 149, 149, 0.9) url('/../assets/pays4.png');
+        height: 30vh;
+        width: 110%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+}
