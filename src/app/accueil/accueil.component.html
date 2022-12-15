@@ -1,30 +1,40 @@
-<nav class="navbar navbar-expand-md navbar-dark sticky-top">
-    <a class="navbar-brand" href="#"><img src="images/log.png" alt="logo" style="width: 50px; height: 50px"></a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
-            <i class="fas fa-bars fa-lg"></i>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-center" id="myNavbar">
-        <ul class="nav nav-pills navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#about">Moi</a></li>
-            <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-            <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
-            <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
-            <li class="nav-item"><a class="nav-link" href="#portfolio">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="#recommandations">Recommandations</a></li>
-        </ul>
-    </div>
-
-</nav>
+<app-navbar></app-navbar>
 <div id="about" class="container-fluid mb-5">
     <div class="row imgg">
         <!-- ici image de debut donnée en bg -->
     </div>
 
+    <!-- A savoir! -->
+    <div class="a-savoir">
+
+        <div class="card-title mx-5 mt-3" style="text-align: left!important; font-weight: bold!important;">
+            <h3>A Savoir</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mx-5">
+                <p class="hist">Terre de vielle civilisation et berceau des grands empires et royaumes, l’histoire du Mali a été marquée par le passage des grandes célébrités comme: Soundjata Keita, Kankou Moussa, Askia Mohamed, Tieba Traoré, Samory Touré, El Hadj Omar Tall,Biton Mamary Coulibaly etc.
+                    Le Mali, est un pays des grands empires et royaumes ayant engendré de brillantes civilisations africaines :- l’empire du Mali 13ème et 14ème siècles;- l’empire Songhaï ;- le royaume Bambara de Ségou ;- le royaume toucouleur d’EL hadj Oumar ;- le royaume peulh de Sékou Amadou etc.
+                    Les vestiges de ces empires et royaumes constituent des attractions majeures pour le tourisme malien.
+
+                    Le Mali, pays en développement, avec 65 % de son territoire en région désertique ou semi-désertique. L'activité économique est surtout limitée autour de la région fluviale irriguée par le fleuve Niger. Environ 10 % de la population est nomade et environ 80 % travaille dans l'agriculture ou la pêche. L'activité industrielle est concentrée autour des activités agricoles. L'exportation constitue une très importante manne de revenus. Le Mali dépend de l'aide étrangère et est très vulnérable aux fluctuations des prix mondiaux du coton, son exportation principale.
+                    Le Mali est un pays avec une diversité culturelle. Le passé historique prestigieux du pays (foyer des grands royaumes et empires), sa culture et sa position géographique privilégiée au coeur de l’Afrique Occidentale ont largement contribuéàla richesse et la diversité du potentiel touristique malien.
+                    </p>
+            </div>
+            <div class="col-md-3 ">
+                <div class="carousel py-5">
+
+                </div>
+            </div>
+    </div>
+
+    </div>
+
+
+
+
     <!--  -->
     <div class="row mt-4 mx-5">
-        <div class="col-md-9 mb-3 card">
+        <div class="col-md-9 mb-3 cardes">
             <div class="row">
                 <div class="col-md-8">
                     <p class="p">Découvez le Mali dans sa diversité,<br>
@@ -41,7 +51,7 @@
             </div>
         </div>
 
-        <div class="col-md-2 offset-md-1 mb-3 card">
+        <div class="col-md-2 offset-md-1 mb-3 cardes">
             <div class="row py-3 mt-4 ">
                 <div class="col text-center">
                     <h1>100</h1>
@@ -57,177 +67,157 @@
 
     <!--  -->
     <div class="row mt-4">
-        <div class="col-md-6">
 
-                <div class="row ">
-                    <div class="col-md-9 mx-auto d-block blocs">
-                    <!-- img part -->
-                    <div class="col-md-12">
-                        <img class="img" src="assets/mali1.png" alt="logo">
+        <div class="col-md-4 mb-3">
+
+            <div class="card">
+
+                    <!-- Image à la une -->
+                    <div class="card-image">
+                        <a href="assets/mali1.png" target="_blank"><img src="assets/mali1.png" alt="carte" /></a>
                     </div>
+                    <!-- Fin de l'image à la une -->
 
-                    <!-- desc part -->
-                    <div class="col-md-12">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col">
-                                        <span class="span">Kayes</span> - <span class="span">Mali</span>
-                                    </div>
+                    <!-- Corp de notre carte -->
+                    <div class="card-body">
 
-                                </div>
+                        <!-- Titre de l'article -->
+                        <div class="card-title">
+                            <h3>Kayes - Mali</h3>
+                        </div>
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Superficie: <span>Km2</span></label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Activité: <span>act</span></label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Population: <span>lan</span></label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Langue: <span>pop</span></label>
-                                    </div>
-                                    <div class="col-md-12 desc">
-                                        <p>
-                                         Kayes est une grande ville et une commune de l'ouest du Mali à 495 km au nord-ouest de Bamako,
-                                         sur les rives du fleuve Sénégal. Elle est la capitale de la ...
-                                        </p>
-                                     </div>
-                                </div>
+                        <div class="card-sub ">
+                            <label>population: 123455667 hbts</label>
+                        </div>
+                        <div class="card-sub ">
+                            <label>superficie: 123455667 Km2</label>
+                        </div>
+                        <div class="card-sub ">
+                            <label>Activité: agriculture</label>
+                        </div>
+                        <div class="card-sub">
+                            <label>Langue: Bambara</label>
+                        </div>
 
-                                <hr>
-                                <div class="row mb">
-                                    <div class="col-md-3">
-                                        Pseudo
-                                    </div>
-                                    <div class="col-md-9 mb-3">
-                                        commentaire...
-                                    </div>
+                        <hr>
+                        <div class="col-md-12">
+                            <label>Pseudo: </label>
+                            <span>
+                                commentaire...Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </span>
+                        </div>
+                        <div class="col-md-12">
+                            <label>Pseudo: </label>
+                            <span>
+                                commentaire...Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </span>
+                        </div>
+                        <!-- form -->
+                        <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="btn btn-outline-success col mb-2 mt-1">Donner un commentaire</button>
 
-                                    <!-- form -->
-                                    <form class="form">
-                                        <div class="form-floating mb-3">
-                                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                                            <label for="floatingTextarea">Commentaire</label>
-                                        </div>
-                                        <button class="btn btn-success col mb-3">Envoyer</button>
-                                    </form>
 
-                                </div>
-                                <!--  -->
 
-                            </div>
+                    </div>
+                    <!-- Fin du corp de notre carte -->
+
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card">
+                <a href="https://www.gekkode.com/blog/post/#">
+                    <!-- Image à la une -->
+                    <div class="card-image"><img src="https://www.gekkode.com/wp-content/uploads/2021/08/orange.jpeg" alt="Orange" /></div>
+                    <!-- Fin de l'image à la une -->
+
+                    <!-- Corp de notre carte -->
+                    <div class="card-body">
+
+                        <!-- Date de publication de l'article-->
+                        <div class="card-date">
+                            <time>20 Novembre 1992</time>
+                        </div>
+
+                        <!-- Titre de l'article -->
+                        <div class="card-title">
+                            <h3>Lorem Ipsum</h3>
+                        </div>
+                        <!-- Extrait de l'article -->
+                        <div class="card-excerpt">
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem
+                                 consectetur voluptate facere at, omnis ab optio placeat officiis! Animi modi harum
+                                  enim quia veniam consectetur unde autem inventore.
+                            </p>
                         </div>
 
                     </div>
-                </div>
-
+                    <!-- Fin du corp de notre carte -->
+                </a>
             </div>
-
+        </div>
 
         <!-- part2 -->
 
-        <div class="col-md-6">
-            <div class="row ">
-                <div class="col-md-9 mx-auto d-block blocs">
-                <!-- img part -->
-                <div class="col-md-12">
-                    <img class="img" src="assets/mali1.png" alt="logo">
-                </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <a href="https://www.gekkode.com/blog/post/#">
+                    <!-- Image à la une -->
+                    <div class="card-image"><img src="https://www.gekkode.com/wp-content/uploads/2021/08/orange.jpeg" alt="Orange" /></div>
+                    <!-- Fin de l'image à la une -->
 
-                <!-- desc part -->
-                <div class="col-md-12">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col">
-                                    <span class="span">Kayes</span> - <span class="span">Mali</span>
-                                </div>
+                    <!-- Corp de notre carte -->
+                    <div class="card-body">
 
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Superficie: <span>Km2</span></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Activité: <span>act</span></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Population: <span>lan</span></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Langue: <span>pop</span></label>
-                                </div>
-                                <div class="col-md-12 desc">
-                                    <p>
-                                     Kayes est une grande ville et une commune de l'ouest du Mali à 495 km au nord-ouest de Bamako,
-                                     sur les rives du fleuve Sénégal. Elle est la capitale de la ...
-                                    </p>
-                                 </div>
-                            </div>
-
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    Pseudo
-                                </div>
-                                <div class="col-md-9 mb-3">
-                                    commentaire...
-                                </div>
-
-                                <!-- form -->
-                                <form class="form">
-                                    <div class="form-floating mb-3">
-                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                                        <label for="floatingTextarea">Commentaire</label>
-                                    </div>
-                                    <button class="btn btn-success col mb-3">Envoyer</button>
-                                </form>
-
-                            </div>
-                            <!--  -->
-
+                        <!-- Date de publication de l'article-->
+                        <div class="card-date">
+                            <time>20 Novembre 1992</time>
                         </div>
-                    </div>
 
-                </div>
+                        <!-- Titre de l'article -->
+                        <div class="card-title">
+                            <h3>Lorem Ipsum</h3>
+                        </div>
+                        <!-- Extrait de l'article -->
+                        <div class="card-excerpt">
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem
+                                 consectetur voluptate facere at, omnis ab optio placeat officiis! Animi modi harum
+                                  enim quia veniam consectetur unde autem inventore.
+                            </p>
+                        </div>
+
+                    </div>
+                    <!-- Fin du corp de notre carte -->
+                </a>
             </div>
 
         </div>
 
     </div>
-</div>
-    <!-- footer -->
-<div class="Container">
-    <div class="footer bg-danger py-3">
-        <div class="col text-center">
-            <hr class="col hr mt-5">
-        </div>
-        <!-- mail -->
-        <div class="row mx-4">
-            <div class="col-md-4 mx-4">
-                <h5 class="mai">Copyright| MaliTourisme - 2022</h5>
-            </div>
-            <!-- reseau sociaux -->
-            <div class="col-md-2 offset-md-5 rs">
-                <div class="row text-center">
-                    <div class="col-sm-3 col-md-2">
-                        <i class="bi bi-facebook fa-2x"></i>
-                    </div>
-                    <div class="col-sm-3 col-md-2 offset-md-1">
-                        <i class="bi bi-envelope fa-2x"></i>
-                    </div>
-                    <div class="col-md-2 offset-md-1">
-                        <i class="bi bi-instagram fa-2x"></i>
-                    </div>
-                    <div class="col-md-2 offset-md-1">
-                        <i class="bi bi-twitter fa-2x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <!-- mon modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Faites un commentaire</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Commentaire</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+          <button type="button" class="btn btn-primary">Envoyer</button>
+        </form>
+      </div>
 
     </div>
+  </div>
 </div>
+</div>
+<!-- fin du modal -->
+
