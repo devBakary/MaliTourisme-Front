@@ -1,13 +1,26 @@
 
 .Container-fluid
 {
-    background-image: url("/../assets/drapeau.jpg");
+    background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),  url("/../assets/hist.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    // overflow: hidden;
-    // height: 100vh;
 }
+h1{
+    color: white;
+}
+ //au niveau du popup
+ .mod
+{
+    margin-top: 20px;
+    position: absolute;
+}
+.title{
+    color: #4464ad;
+}
+//===========
+
+//le formulaire
 .cl{
     margin-left: 10%;
 }
@@ -16,12 +29,12 @@
     top: 0;
 }
 .main{
-    margin-top: 80px;
-    box-shadow: -1px -1px 60px 10px black;
     background: rgba(0,0,0,0.8);
     padding: 10px;
 
  }
+
+
  .label{
      font-weight: normal;
      margin-top: 15px;
@@ -31,6 +44,7 @@
  h3, h6{
      color: white!important;
  }
+
  .form-control{
      border: none;
      background: transparent;
@@ -53,6 +67,7 @@
  .tb{
     width: 90%;
  }
+ //===========
 
 
  @media only screen and (max-width: 767px) {
@@ -73,12 +88,11 @@
      }
  }
 
-
+// la partie du tableau css
 .tabl{
     margin-top: 80px;
-    box-shadow: -1px -1px 60px 10px black;
-    // background: rgba(0,0,0,0.6);
-    background: white;
+    background: #a4b0f5;
+    border-radius: 10px;
     padding: 15px;
     width: auto;
   }
@@ -86,17 +100,26 @@
   .tables{
     height: 50px;
     border-top: transparent;
-    background-color: red;
+    background-color: #4464ad;
+    color: white!important;
     border-radius: 20px 20px 0 0;
   }
   .sh{
     border: 1px solid black;
+    color: black!important;
+    border-radius: 5px;
   }
+  button{
+    background: none;
+    border: 1px solid #f58f29!important;
+    color: black!important;
+  }
+  button:hover{
+    background: #f58f29!important;
+    color: #fff!important;
+  }
+  .card{
+    color: black;
+  }
+  //===============================
 
-  .boite{
-    height: 80px;
-    background-color: white;
-    border-radius: 2px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-    padding: 10px;
-  }

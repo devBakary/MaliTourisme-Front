@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { InscrireComponent } from './inscrire/inscrire.component';
 import { LoginComponent } from './login/login.component';
-import { ContactComponent } from './contact/contact.component';
-import { AboutComponent } from './about/about.component';
 import { RegionComponent } from './region/region.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,8 +16,6 @@ import { FooterComponent } from './footer/footer.component';
     AccueilComponent,
     InscrireComponent,
     LoginComponent,
-    ContactComponent,
-    AboutComponent,
     RegionComponent,
     NavbarComponent,
     FooterComponent

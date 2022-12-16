@@ -1,28 +1,73 @@
+
+
 <div class="Container-fluid">
-    <h2>Region</h2>
+<app-navbar></app-navbar>
 
-    <div class=" col-md-11 mx-auto tabl">
-
+    <div class="col-md-11 py-2 mx-auto mb-2 tab">
+        <h1 class="mx-5">Region</h1>
         <div class="row">
-          <div class="col-12 col-md-8 mx-3  boite">
-            <p>Ici la liste de vos dettes !</p>
-          </div>
-          <div class="col-12 col-md-3 ml-5  boite">
-            2
-          </div>
+
+            <div class="col-md-4 mb-2">
+                <div class="card mx-auto" style="width: 18rem;">
+                    <div class="row" >
+                        <div class="col-md-6" >
+                            <div class="card-body">
+                                <h5 class="card-title">Mali</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" style="color: red!important;">Bamako</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6" >
+                            <div class="card-body">
+                                <img src="assets/drap.jpg" class="card-img-top" alt="mali">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="card mx-auto" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mali</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" style="color: red!important;">region</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="card mx-auto" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mali</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" style="color: red!important;">habitants</h6>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class=" col-md-11 mx-auto mb-5 tabl">
+
 
         <div class="row mt-4 mb-2 ">
-          <div class="col-4 offset-md-8">
-            <form class="d-flex text-end">
-              <input type="search" class="form-control me-2 sh" placeholder="Recherchez une dette">
-              <button class="btn btn-outline-success" type="submit">Rechercher</button>
-            </form>
-
-          </div>
         </div>
-        <div class="table-responsive-sm mx-auto tb">
-        <table class="table mx-auto ">
+        <div class="table-responsive-sm mx-auto mb-5 tb">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-2" style="width: 20rem;">
+                        <div class="card-body mx-auto">
+                            <h5 class="card-title">Ajouter une region ou un pays</h5>
+                                <div class="">
+                                    <button class="btn" data-toggle="modal" data-target="#region" data-whatever="@mdo">ajouter</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 offset-md-4">
+                    <form class="d-flex text-end mt-5 pt-4 mb-2">
+                        <input type="search" class="form-control sh mx-auto" placeholder="Recherchez une dette">
+                        <button class="btn" type="submit">Rechercher</button>
+                      </form>
+                </div>
+            </div>
+            <table class="table mx-auto mb-5">
             <thead>
               <tr class="tables">
                 <th scope="col" style="border-radius: 10px 0 0 0 ;">Nom</th>
@@ -40,109 +85,160 @@
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Jacob</td>
                 <td>Thornton</td>
                 <td>@fat</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td colspan="2">Larry the Bird</td>
                 <td>@twitter</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
               </tr>
             </tbody>
-          </table>
+            </table>
         </div>
       </div>
 
-    <!-- les formulaire -->
-    <div class="row ro1">
+    <app-footer></app-footer>
+</div>
 
-            <div class="col-md-6 cl">
-                <div class="col-md-9 main mb-5">
-                    <h3 class="text-center mt-3 mb-5">Ajouter Region</h3>
+<!-- le modal pour le pays -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content mod">
+        <div class="modal-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="title">Pays</h5>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#region" data-whatever="@mdo">Region</button>
+                </div>
+            </div>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+                <div class="col-md-12 main mb-5">
+                    <h3 class="text-center mt-3 mb-5">Ajouter Pays</h3>
                     <form class="">
 
                             <div class="row mb-2">
-                                <label class="label col-md-4 label-control">Nom<span style="color: red;">*</span></label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="Nom de la region">
+                                <label class="label col-md-3 label-control">Nom<span style="color: red;">*</span></label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="Nom du pays">
                                 </div>
                             </div>
-                            <div class="row mb-2">
-                                <label class="label col-md-4 label-control">Code region<span style="color: red;">*</span></label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="code region">
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label class="label col-md-4 label-control">Superficie<span style="color: red;">*</span></label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="Superficie">
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label class="label col-md-4 label-control">Population<span style="color: red;">*</span></label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="population">
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label class="label col-md-4 label-control">Activité<span style="color: red;">*</span></label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="Domaine activite">
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label class="label col-md-4 label-control">Langue<span style="color: red;">*</span></label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="Langue parlée">
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label class="label col-md-4 label-control">Pays<span style="color: red;">*</span></label>
-                                <select class="col-md-7 mx-3 form-control ">
-                                    <option selected>--Choisir pays--</option>
-                                    <option value="1">One</option>
-
-                                </select>
-                            </div>
-
-
                             <div class="row mt-5 mb-5 mx-auto d-block">
                                 <button type="submit" class="btn btn-outline-primary mx-auto d-block">Ajouter</button>
                             </div>
 
                     </form>
+        </div>
+        </div>
 
+      </div>
+    </div>
+  </div>
+
+  <!-- le modal pour le la region -->
+<div class="modal fade" id="region" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content mod">
+        <div class="modal-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="title">Region</h5>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" data-dismiss="modal">Pays</button>
                 </div>
             </div>
 
-            <div class="col-md-4 ">
-                    <div class="col-md-12 main mb-5">
-                        <h3 class="text-center mt-3 mb-5">Ajouter Pays</h3>
-                        <form class="">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
 
-                                <div class="row mb-2">
-                                    <label class="label col-md-3 label-control">Nom<span style="color: red;">*</span></label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" placeholder="Nom du pays">
-                                    </div>
-                                </div>
-                                <div class="row mt-5 mb-5 mx-auto d-block">
-                                    <button type="submit" class="btn btn-outline-primary mx-auto d-block">Ajouter</button>
-                                </div>
+            <div class="col-md-12 main">
+                <h3 class="text-center mt-3 mb-5">Ajouter Region</h3>
+                <form class="">
 
-                        </form>
+                        <div class="row mb-2">
+                            <label class="label col-md-4 label-control">Nom<span style="color: red;">*</span></label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Nom de la region">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="label col-md-4 label-control">Code region<span style="color: red;">*</span></label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="code region">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="label col-md-4 label-control">Superficie<span style="color: red;">*</span></label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Superficie">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="label col-md-4 label-control">Population<span style="color: red;">*</span></label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="population">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="label col-md-4 label-control">Activité<span style="color: red;">*</span></label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Domaine activite">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="label col-md-4 label-control">Langue<span style="color: red;">*</span></label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Langue parlée">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="label col-md-4 label-control">Pays<span style="color: red;">*</span></label>
+                            <select class="col-md-7 mx-3 form-control ">
+                                <option selected>--Choisir pays--</option>
+                                <option value="1">One</option>
 
-                    </div>
+                            </select>
+                        </div>
+
+
+                        <div class="row mt-5 mb-5 mx-auto d-block">
+                            <button type="submit" class="btn btn-outline-primary mx-auto d-block">Ajouter</button>
+                        </div>
+
+                </form>
+
             </div>
+        </div>
 
+      </div>
     </div>
+  </div>
 
-</div>
 
 
 
