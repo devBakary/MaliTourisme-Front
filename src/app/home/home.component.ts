@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../Service/user.service';
 
 @Component({
-  selector: 'app-region',
-  templateUrl: './region.component.html',
-  styleUrls: ['./region.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class RegionComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   content?: string;
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getAdminBoard().subscribe({
+    this.userService.getPublicContent().subscribe({
       next: data => {
         this.content = data;
       },
@@ -25,5 +26,6 @@ export class RegionComponent implements OnInit {
       }
     });
   }
+
 
 }

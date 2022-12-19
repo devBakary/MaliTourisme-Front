@@ -9,6 +9,13 @@ import { LoginComponent } from './login/login.component';
 import { RegionComponent } from './region/region.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './Helper/auth.interceptor';
+import { ProfilComponent } from './profil/profil.component';
+import { HomeComponent } from './home/home.component';
+import { PaysComponent } from './class/pays/pays.component';
+import { CommentaireComponent } from './class/commentaire/commentaire.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +25,19 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     RegionComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ProfilComponent,
+    HomeComponent,
+    PaysComponent,
+    CommentaireComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

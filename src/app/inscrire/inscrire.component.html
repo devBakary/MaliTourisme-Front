@@ -2,38 +2,89 @@
     <div class="row ro1">
         <div class="col-md-4 mx-auto d-block main mb-5">
             <h3 class="text-center mt-3 mb-5">Inscription</h3>
-            <form class="">
+            <form
+              *ngIf="!isSuccessful"
+              name="form"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              #f="ngForm"
+              novalidate>
 
                     <div class="row mb-2">
-                        <label class="label col-md-3 label-control">Nom<span style="color: red;">*</span></label>
+                        <label class="label col-md-3 label-control">Username<span style="color: red;">*</span></label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="Nom">
+                            <input type="text" class="form-control" placeholder="Nom d'utilisateur"
+                            name="username"
+                            [(ngModel)]="form.username"
+                            required
+                            minlength="3"
+                            maxlength="20"
+                            #username="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
                         </div>
+                        <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+                          <div *ngIf="username.errors['required']">Username is required</div>
+                          <div *ngIf="username.errors['minlength']">
+                            Username must be at least 3 characters
+                          </div>
+                          <div *ngIf="username.errors['maxlength']">
+                            Username must be at most 20 characters
+                          </div>
+                        </div>
+
                     </div>
-                    <div class="row mb-2">
+
+
+                    <!-- <div class="row mb-2">
                         <label class="label col-md-3 label-control">Prenom<span style="color: red;">*</span></label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" placeholder="Prenom">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row mb-2">
                         <label class="label col-md-3 label-control">Emali<span style="color: red;">*</span></label>
                         <div class="col-md-9">
-                            <input type="email" class="form-control" placeholder="mot de passe">
+                            <input type="email" class="form-control" placeholder="Votre email"
+                            name="email"
+                            [(ngModel)]="form.email"
+                            required
+                            email
+                            #email="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && email.errors }" >
                         </div>
+                        <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+                          <div *ngIf="email.errors['required']">Email is required</div>
+                          <div *ngIf="email.errors['email']">
+                            Email must be a valid email address
+                          </div>
+                        </div>
+
                     </div>
+
+
                     <div class="row mb-2">
                         <label class="label col-md-3 label-control">Password<span style="color: red;">*</span></label>
                         <div class="col-md-9">
-                            <input type="password" class="form-control" placeholder="mot de passe">
+                            <input type="password" class="form-control" placeholder="mot de passe"
+                            name="password"
+                            [(ngModel)]="form.password"
+                            required
+                            minlength="6"
+                            #password="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
                         </div>
                     </div>
 
 
                     <div class="row mt-5 mb-5 mx-auto d-block">
                         <button type="submit" class="btn btn-outline-primary mx-auto d-block">Inscription</button>
+                        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                          Signup failed!<br />{{ errorMessage }}
+                        </div>
                     </div>
 
+                    <div class="alert alert-success" *ngIf="isSuccessful">
+                      Your registration is successful!
+                    </div>
             </form>
 
         </div>
