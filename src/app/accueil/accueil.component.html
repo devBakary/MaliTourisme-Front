@@ -84,7 +84,7 @@
 
                 <div class="col-md-4 mb-3" *ngFor="let liste of listes">
 
-                    <div class="card card-region">
+                    <div class="card card-region" >
 
                             <!-- Image à la une -->
                             <div class="card-image">
@@ -97,11 +97,11 @@
 
                                 <!-- Titre de l'article -->
                                 <div class="card-titles">
-                                    <h3>{{liste.nom}} - Mali</h3>
+                                    <h3>{{liste.langue}} - Mali</h3>
                                 </div>
 
-                                <div class="card-sub ">
-                                    <label>population: 123455667 hbts</label>
+                                <div class="card-sub " *ngFor="let lt of maPop">
+                                    <label>population: {{lt[1]}} hbts</label>
                                 </div>
                                 <div class="card-sub ">
                                     <label>superficie: {{liste.superficie}} Km2</label>

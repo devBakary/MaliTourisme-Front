@@ -3,6 +3,7 @@ import { NonNullAssert } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Commentaire } from '../class/commentaire';
+import { Population } from '../class/population';
 import { Region } from '../class/region';
 
 const API = 'http://localhost:8080/tourisme/region/'
@@ -31,7 +32,7 @@ export class RegionService {
               data.append('langue', langue);
               data.append('nom', nom);
               data.append('superficie', superficie);
-              
+
           return this.http.post(`http://localhost:8080/tourisme/region/ajout`, data);
   }
 
@@ -47,11 +48,22 @@ export class RegionService {
   }
 
 
-  //ajouter un commentaire
+
   Comment(commentaire: Commentaire): Observable<any>{
 
     return this.http.post(`http://localhost:8080/tourisme/commentaire/ajouter`, commentaire);
   }
+  //ajouter un commentaire
+  addPopu(populations: Population, id: number ):Observable<any>{
+
+    return this.http.post<any>(`http://localhost:8080/tourisme/population/create/${id}`, populations)
+  }
+
+  //liste de region
+  listePop():Observable<any>{
+    return this.http.get(`http://localhost:8080/tourisme/population/liste`)
+  }
+
   //liste de commentaire
   listeCom(): Observable<any>{
     return this.http.get(`http://localhost:8080/tourisme/commentaire/liste`)

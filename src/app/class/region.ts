@@ -4,8 +4,9 @@ export class Region {
   coderegion?: string;
   description? : string;
   img: any;
-  langue? : string;
   nom ?: string;
+  langue? : string;
+
   superficie? : string;
   id?: number
   // constructor(nom:string,code:string,d:string,des:string,l:string,s:string,i:number){

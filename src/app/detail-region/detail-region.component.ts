@@ -13,6 +13,7 @@ export class DetailRegionComponent implements OnInit {
   mesliste: any;
   id: any
   idreg: any
+  maPop: any;
 
   constructor(
     private service: RegionService,
@@ -42,6 +43,11 @@ export class DetailRegionComponent implements OnInit {
 
    });
 
+   this.service.listePop().subscribe(data =>{
+    this.maPop = data
+    console.log('listess___', data);
+   })
+
 
    //liste des commentaire
    //console.log("mes comment")
@@ -59,6 +65,6 @@ export class DetailRegionComponent implements OnInit {
     })
   }
 
-  
+
 
 }

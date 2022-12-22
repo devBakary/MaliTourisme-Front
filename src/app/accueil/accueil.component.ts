@@ -15,6 +15,7 @@ export class AccueilComponent implements OnInit {
 
   //liste des regions
   listes: any;
+  maPop: any;
 
   constructor(
     private service : RegionService,
@@ -24,7 +25,11 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
 
 
-
+     //liste des popul
+   this.service.listePop().subscribe(data =>{
+    this.maPop = data
+    console.log('listess___', data);
+   })
 
 
     this.service.liste().subscribe(data=>{

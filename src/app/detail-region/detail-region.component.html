@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col bg-warning mt-3">
-    <img src="assets/ml1.png" class="mx-auto d-block img-fluid" alt="Responsive image">
+    <img src="../../assets/{{idreg.img}}" class="mx-auto d-block img-fluid" alt="Responsive image">
   </div>
   <div class="col mt-5">
     <div class="row">
@@ -43,8 +43,8 @@
 
 
           <!-- Detail de l'article -->
-          <div class="card-sub ">
-              <label>population: 123455667 hbts</label>
+          <div class="card-sub " *ngFor="let lt of maPop">
+              <label>population: {{lt[1]}} hbts</label>
           </div>
           <div class="card-sub">
               <label>Langue: {{idreg.langue}}</label>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Commentaire } from '../class/commentaire';
+import { Population } from '../class/population';
 import { Region } from '../class/region';
 import { RegionService } from '../Service/region.service';
 import { UserService } from '../Service/user.service';
@@ -16,12 +18,16 @@ export class RegionComponent implements OnInit {
   liste: any;
   content?: string;
   img:any;
+  message: any;
+
+  maPop: any
 
   formmodule!: FormGroup;
 
   constructor(private userService: UserService, private service: RegionService,
     private formB: FormBuilder,) { }
 
+    //pour la region
   ajoutRegion: Region ={
 
     activite: '',
@@ -32,6 +38,14 @@ export class RegionComponent implements OnInit {
     superficie: '',
     img: '',
   }
+  //pour la population
+    ajoutPop: Population={
+      annee: '',
+      habitants: 0
+  }
+
+  annee: string =  '';
+  habitants: number = 0
 
   formodule! : FormGroup
   activite: string = '';
@@ -61,10 +75,19 @@ export class RegionComponent implements OnInit {
     })
 
 
+
     //liste des regions
     this.service.liste().subscribe(data=>{
       this.liste=data;
    });
+
+   //liste des popul
+   this.service.listePop().subscribe(data =>{
+    this.maPop = data
+
+    console.log('listess___', data);
+
+   })
   }
 
   //ajout de la region
@@ -87,14 +110,35 @@ export class RegionComponent implements OnInit {
 
     //ajout region avec images
     getRegionFormData(){
-      //console.table ("vbbvbcbvbx"+ this.nom);
-      console.table ("ts :  "+ this.img);
       this.service.ajoutRegions(this.activite, this.coderegion, this.description, this.img,
                                this.nom,this.langue,  this.superficie).subscribe(
                                   (data)=>{
                                   console.log('eeeeeeeeeeeeeeeeeeeeee',data);
                                   this.ajoutRegion = data;
+                                  this.reloadPage()
+
+                                  this.message = "ajouter avec success!"
           })
+    }
+
+    resetForm(){
+      this.annee='',
+      this.habitants=0
+    }
+
+    //methode pour ajouter un comm
+    population(){
+      console.log("donnée===========");
+      this.ajoutPop.annee=this.annee;
+      this.ajoutPop.habitants=this.habitants;
+      this.service.addPopu(this.ajoutPop, this.id).subscribe(data =>{
+        this.reloadPage()
+
+      })
+    }
+
+    reloadPage(): void {
+      window.location.reload();
     }
 
   }
