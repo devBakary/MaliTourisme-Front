@@ -1,5 +1,5 @@
  <!-- <app-navbar></app-navbar> -->
-<div id="about" class="container-fluid">
+  <div id="about" class="container-fluid">
 
     <div class="row imgg">
         <!-- ici image de debut donnée en bg -->
@@ -68,10 +68,10 @@
                 <div class="card" style="height: 44vh;">
                     <div class="card-body">
                         <div class="col text-center pt-5">
-                            <h1>100</h1>
+                            <h1>{{listes.length}}</h1>
                         </div>
                         <div class="col text-center">
-                            <h6>text</h6>
+                            <h6>Regions</h6>
                         </div>
                     </div>
         </div>
@@ -82,13 +82,13 @@
             <div class="row mt-4 mx-auto">
                 <h2 class=" mx-3 mt-3 mb-2">Nous vous proposons les regions disponibles dans notre site</h2>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-3" *ngFor="let liste of listes">
 
                     <div class="card card-region">
 
                             <!-- Image à la une -->
                             <div class="card-image">
-                                <a href="assets/mali1.png" target="_blank"><img src="assets/mali1.png" alt="carte" /></a>
+                                <a href="assets/mesimages/{{liste.img}}" target="_blank"><img src="../../assets/mesimages/{{liste.img}}" alt="carte" /></a>
                             </div>
                             <!-- Fin de l'image à la une -->
 
@@ -97,37 +97,25 @@
 
                                 <!-- Titre de l'article -->
                                 <div class="card-titles">
-                                    <h3>Kayes - Mali</h3>
+                                    <h3>{{liste.nom}} - Mali</h3>
                                 </div>
 
                                 <div class="card-sub ">
                                     <label>population: 123455667 hbts</label>
                                 </div>
                                 <div class="card-sub ">
-                                    <label>superficie: 123455667 Km2</label>
+                                    <label>superficie: {{liste.superficie}} Km2</label>
                                 </div>
                                 <div class="card-sub ">
-                                    <label>Activité: agriculture</label>
+                                    <label>Activité: {{liste.activite}}</label>
                                 </div>
                                 <div class="card-sub">
-                                    <label>Langue: Bambara</label>
+                                    <label>Langue: {{liste.langue}}</label>
                                 </div>
+                                <button type="button" [routerLink] ="['/detail', liste.id]"   class="btn btn-outline-success col mb-2 mt-1">plus</button>
 
-                                <hr>
-                                <div class="col-md-12">
-                                    <label>Pseudo: </label>
-                                    <span>
-                                        commentaire...Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    </span>
-                                </div>
-                                <div class="col-md-12">
-                                    <label>Pseudo: </label>
-                                    <span>
-                                        commentaire...Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    </span>
-                                </div>
-                                <!-- form -->
-                                <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="btn btn-outline-success col mb-2 mt-1">Donner un commentaire</button>
+
+
 
                             </div>
                             <!-- Fin du corp de notre carte -->
@@ -135,75 +123,11 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
-
-                    <div class="card">
-                        <a href="https://www.gekkode.com/blog/post/#">
-                            <!-- Image à la une -->
-                            <div class="card-image"><img src="https://www.gekkode.com/wp-content/uploads/2021/08/orange.jpeg" alt="Orange" /></div>
-                            <!-- Fin de l'image à la une -->
-
-                            <!-- Corp de notre carte -->
-                            <div class="card-body">
-
-                                <!-- Date de publication de l'article-->
-                                <div class="card-date">
-                                    <time>20 Novembre 1992</time>
-                                </div>
-
-                                <!-- Titre de l'article -->
-                                <div class="card-title">
-                                    <h3>Lorem Ipsum</h3>
-                                </div>
-                                <!-- Extrait de l'article -->
-                                <div class="card-excerpt">
-                                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem
-                                        consectetur voluptate facere at, omnis ab optio placeat officiis! Animi modi harum
-                                        enim quia veniam consectetur unde autem inventore.
-                                    </p>
-                                </div>
-
-                            </div>
-                            <!-- Fin du corp de notre carte -->
-                        </a>
-                    </div>
-                </div>
+                <!--  -->
 
                 <!-- part2 -->
 
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <a href="https://www.gekkode.com/blog/post/#">
-                            <!-- Image à la une -->
-                            <div class="card-image"><img src="https://www.gekkode.com/wp-content/uploads/2021/08/orange.jpeg" alt="Orange" /></div>
-                            <!-- Fin de l'image à la une -->
 
-                            <!-- Corp de notre carte -->
-                            <div class="card-body">
-
-                                <!-- Date de publication de l'article-->
-                                <div class="card-date">
-                                    <time>20 Novembre 1992</time>
-                                </div>
-
-                                <!-- Titre de l'article -->
-                                <div class="card-title">
-                                    <h3>Lorem Ipsum</h3>
-                                </div>
-                                <!-- Extrait de l'article -->
-                                <div class="card-excerpt">
-                                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem
-                                        consectetur voluptate facere at, omnis ab optio placeat officiis! Animi modi harum
-                                        enim quia veniam consectetur unde autem inventore.
-                                    </p>
-                                </div>
-
-                            </div>
-                            <!-- Fin du corp de notre carte -->
-                        </a>
-                    </div>
-
-                </div>
 
             </div>
 
@@ -240,37 +164,14 @@
     </div>
     <!-- fin -->
 </div>
-<app-footer></app-footer>
 
 
 
 
 
 
- <!-- mon modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Faites un commentaire</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form>
-            <div class="form-group">
-                <label for="message-text" class="col-form-label">Commentaire</label>
-                <textarea class="form-control" id="message-text"></textarea>
-            </div>
-            <button type="button" class="btn btn-primary">Envoyer</button>
-            </form>
-        </div>
 
-        </div>
-    </div>
-    </div>
- <!-- fin du modal -->
+
 
 
 

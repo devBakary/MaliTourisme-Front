@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Commentaire } from '../class/commentaire';
+import { RegionService } from '../Service/region.service';
 
 @Component({
   selector: 'app-accueil',
@@ -7,9 +10,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilComponent implements OnInit {
 
-  constructor() { }
+  //liste commentaire
+  mesliste: any
+
+  //liste des regions
+  listes: any;
+
+  constructor(
+    private service : RegionService,
+    ) { }
+
 
   ngOnInit(): void {
+
+
+
+
+
+    this.service.liste().subscribe(data=>{
+      this.listes=data;
+   });
+
+   //liste des commentaire
+   console.log("mes comment")
+   this.service.listeCom().subscribe(data =>{
+    this.mesliste = data;
+    console.log("===========================afficher", data)
+   });
   }
+
+
+
+
+
 
 }

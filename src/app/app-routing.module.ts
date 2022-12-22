@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
+import { DetailRegionComponent } from './detail-region/detail-region.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthGuard } from './Helper/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { InscrireComponent } from './inscrire/inscrire.component';
 import { LoginComponent } from './login/login.component';
@@ -17,11 +19,11 @@ const routes: Routes = [
     },
     {
         path: "navbar",
-        component: NavbarComponent,
+        component: NavbarComponent, canActivate: [AuthGuard],
         children:[
           {
             path: "accueil",
-            component: AccueilComponent
+            component: AccueilComponent,
           },
           {
             path: "regions",
@@ -36,6 +38,10 @@ const routes: Routes = [
           },
         ]
 
+    },
+    {
+      path: 'detail/:id',
+      component: DetailRegionComponent
     },
     {
         path: "footer",
