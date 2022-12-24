@@ -47,13 +47,15 @@ export class RegionService {
     return this.http.get(`http://localhost:8080/tourisme/region/get/${id}`)
   }
 
-
-
-  Comment(commentaire: Commentaire): Observable<any>{
-
-    return this.http.post(`http://localhost:8080/tourisme/commentaire/ajouter`, commentaire);
+  //region par id
+  supRegion(id: number): Observable<any>{
+    return this.http.delete(`http://localhost:8080/tourisme/region/delete/${id}`)
   }
-  //ajouter un commentaire
+
+
+
+
+  //ajout de la population
   addPopu(populations: Population, id: number ):Observable<any>{
 
     return this.http.post<any>(`http://localhost:8080/tourisme/population/create/${id}`, populations)
@@ -64,9 +66,28 @@ export class RegionService {
     return this.http.get(`http://localhost:8080/tourisme/population/liste`)
   }
 
-  //liste de commentaire
-  listeCom(): Observable<any>{
+  //liste de region
+  PopRegion(id: number):Observable<any>{
+    return this.http.get(`http://localhost:8080/tourisme/population/liste/${id}`)
+  }
+
+
+
+  //liste de commentaire par region
+  listeCom(id: number): Observable<any>{
+    return this.http.get(`http://localhost:8080/tourisme/commentaire/liste/${id}`)
+  }
+
+   //liste de commentaire
+   listeCommentaire(): Observable<any>{
     return this.http.get(`http://localhost:8080/tourisme/commentaire/liste`)
   }
+
+   //ajout de commentaire
+   ajoutCom(commentaire: Commentaire, id: number, idreg: number): Observable<any>{
+    return this.http.post(`http://localhost:8080/tourisme/commentaire/ajouter/${id}/${idreg}`, commentaire)
+  }
+
+
 }
 

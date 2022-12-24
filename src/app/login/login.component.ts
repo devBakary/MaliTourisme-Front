@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AuthService } from '../Service/auth.service';
 import { StorageService } from '../Service/storage.service';
+import { UserService } from '../Service/user.service';
 import { ICredentials } from '../_interfaces/credentials';
 import { IToken } from '../_interfaces/token';
 import { TokenService } from '../_services/token.service';
@@ -16,24 +17,32 @@ export class LoginComponent implements OnInit {
     username: '',
     password: ''
   };
+
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  utilisateur:any;
+  value!:string
+  role: any
+
+
 
   constructor(
     private authService: AuthService,
     private storageService: StorageService,
     private route: Router,
-    private tokenService: TokenService) { }
+    private tokenService: TokenService,
+    private use:UserService) { }
 
   ngOnInit(): void {
-    if (this.tokenService.isLogged()) {
-      this.isLoggedIn = true;
-      this.roles = this.tokenService.getUser().roles;
-      console.log("mon role+++++++++++++++++++",this.roles);
+    // if (this.tokenService.isLogged()) {
+    //   this.isLoggedIn = true;
+    //   this.roles = this.tokenService.roles[0].name;
+    //   // console.log("mon role+++++++++++++++++++",this.roles);
 
-    }
+    // }
+
   }
 
   // onSubmit(): void {
@@ -64,13 +73,23 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.form).subscribe(
         data =>{
           // console.log(data.accessToken),
-          this.tokenService.saveToken(data.accessToken)
+          this.tokenService.saveToken(data),
+          this.use.getUsername(this.form.username).subscribe(dat=>{
+          this.utilisateur=dat;
+          this.roles = dat.roles[0].name
+          this.isLoggedIn = true;
+          console.log(dat.roles[0].name);
+           // localStorage.setItem('utilisateur', this.value)
+          })
+
+
+
         },
         err => console.log(err)
       )
     }
 
-  reloadPage(): void {
+    reloadPage(): void {
     window.location.reload();
   }
 

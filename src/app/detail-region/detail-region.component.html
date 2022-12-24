@@ -1,77 +1,79 @@
 <div class="container">
-  <div class="col bg-warning mt-3">
-    <img src="../../assets/{{idreg.img}}" class="mx-auto d-block img-fluid" alt="Responsive image">
+  <div class="col mt-3">
+    <div class="card com">
+      <img src="../../assets/{{idreg.img}}" class="mx-auto d-block img-fluid" alt="Responsive image">
+    </div>
   </div>
-  <div class="col mt-5">
+  <div class="col mt-3">
     <div class="row">
-      <div class="col-md-6 bg-success" >
+      <div class="col-md-7" >
+        <div class="card" style="background-color: #4464ad;">
 
-        <div class="card-titles mt-2">
-          <h3>{{idreg.nom}} - Mali</h3>
-      </div>
+          <div class="card-titles mt-2">
+            <h3>{{idreg.nom}} - Mali</h3>
+          </div>
 
-        <div class="row mt-2">
+          <div class="row mt-2">
+              <div class="col-md-4 mb-2">
+                <div class="card mx-auto" >
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{idreg.coderegion}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" style="color: red!important;">Code region</h6>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-4 mb-2">
-              <div class="card mx-auto" >
-                  <div class="card-body text-center">
-                      <h5 class="card-title">{{idreg.coderegion}}</h5>
-                      <h6 class="card-subtitle mb-2 text-muted" style="color: red!important;">Code region</h6>
-                  </div>
-              </div>
+                <div class="card mx-auto" >
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{idreg.superficie}} Km2</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" style="color: red!important;">superficie</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="card mx-auto">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{idreg.activite}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" style="color: red!important;">Activité</h6>
+                    </div>
+                </div>
+            </div>
           </div>
-          <div class="col-md-4 mb-2">
-              <div class="card mx-auto" >
-                  <div class="card-body text-center">
-                      <h5 class="card-title">{{idreg.superficie}} Km2</h5>
-                      <h6 class="card-subtitle mb-2 text-muted" style="color: red!important;">superficie</h6>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4 mb-2">
-              <div class="card mx-auto">
-                  <div class="card-body text-center">
-                      <h5 class="card-title">{{idreg.activite}}</h5>
-                      <h6 class="card-subtitle mb-2 text-muted" style="color: red!important;">Activité</h6>
-                  </div>
-              </div>
-          </div>
-      </div>
 
 
-        <div class="card-body">
+          <div class="card-body">
 
 
 
-          <!-- Detail de l'article -->
-          <div class="card-sub " *ngFor="let lt of maPop">
-              <label>population: {{lt[1]}} hbts</label>
-          </div>
-          <div class="card-sub">
-              <label>Langue: {{idreg.langue}}</label>
-          </div>
-          <div class="card-sub">
-              <label>Description: </label>
-              <span> {{idreg.description}}</span>
+            <!-- Detail de l'article -->
+            <div class="card-sub " *ngFor="let lt of maPop">
+                <label>population: {{lt.habitants}} hbts</label>
+            </div>
+            <div class="card-sub">
+                <label>Langue: {{idreg.langue}}</label>
+            </div>
+            <div class="card-sub">
+                <label>Description: </label>
+                <span> {{idreg.description}}</span>
+            </div>
+
           </div>
 
         </div>
       </div>
 
-      <div class="col-md-6 bg-danger py-2 mx-auto">
-         <div class="col-md-12" >
-            <label>pseudo: </label>
-            <span>
-              commentaire...Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </span>
-          </div>
-          <div class="col-md-12">
-            <label>Pseudo: </label>
-            <span>
-                commentaire...Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </span>
+      <div class="col-md-5 mx-auto">
+        <div class=" card com">
+          <div class="col-md-12"  *ngFor="let list of mesliste">
+              <label>{{list.user.username}}: </label>
+              <span>
+                {{list.description}}
+              </span>
+            </div>
+
+          <!-- form -->
+          <button type="button" data-toggle="modal" data-target="#commentaire" data-whatever="@mdo"  class="btn btn-outline-success col-6 mb-2 mt-3 mx-auto">Donner un commentaire</button>
         </div>
-        <!-- form -->
-        <button type="button" data-toggle="modal" data-target="#commentaire" data-whatever="@mdo"  class="btn btn-outline-success col-6 mb-2 mt-3 mx-auto">Donner un commentaire</button>
       </div>
     </div>
   </div>

@@ -89,7 +89,7 @@
                 <td>{{listes[2]}}</td>
                 <td>{{listes[1]}} hbts</td>
                 <td>{{listes[0]}}</td>
-                <td><a routerLink="['', 'listes.id']">modifier</a>  <a href="liste.id">supprimer</a></td>
+                <td><a routerLink="['', 'listes.id']">modifier</a>  <a routerLink="['', 'listes.id']" (click)="supprimer(listes[7])">supprimer</a></td>
               </tr>
             </tbody>
             </table>

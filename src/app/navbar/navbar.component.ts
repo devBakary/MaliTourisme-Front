@@ -10,10 +10,10 @@ import { TokenService } from '../_services/token.service';
 })
 export class NavbarComponent implements OnInit {
   private roles: string[] = [];
-  isLoggedIn = false;
+  isLogged = false;
   showAdminBoard = false;
-  showModeratorBoard = false;
   username?: string;
+  currentUser: any;
   constructor(
     private storageService: StorageService,
     private authService: AuthService,
@@ -22,15 +22,30 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.isLoggedIn =  this.tokenService.isLogged()
+    this.isLogged = this.tokenService.isLogged();
 
-    if(this.isLoggedIn){
-     
+    if (this.isLogged) {
+      const user = this.tokenService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+
+      this.username = user.username;
     }
-    // this.isLoggedIn = this.storageService.isLoggedIn();
+
+    this.currentUser = this.tokenService.getUser();
+
+
+
+    // this.isLoggedIn =  this.tokenService.isLogged()
+
+    // if(this.isLoggedIn){
+
+    // }
+    // this.isLoggedIn = this.tokenService.isLogged();
 
     // if (this.isLoggedIn) {
-    //   const user = this.storageService.getUser();
+    //   const user = this.tokenService.getUser();
     //   this.roles = user.roles;
 
     //   this.showAdminBoard = this.roles.includes('ROLE_ADMIN');

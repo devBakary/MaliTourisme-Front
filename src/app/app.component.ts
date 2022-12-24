@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './Service/auth.service';
 import { StorageService } from './Service/storage.service';
+import { TokenService } from './_services/token.service';
 
 @Component({
   selector: 'app-root',
@@ -11,22 +12,21 @@ import { StorageService } from './Service/storage.service';
 export class AppComponent {
   title = 'MAliTourisme-Front';
   private roles: string[] = [];
-  isLoggedIn = false;
+  isLogged = false;
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
 
-  constructor(private storageService: StorageService, private authService: AuthService,  private route: Router) { }
+  constructor(private storageService: StorageService, private authService: AuthService, private tokenService: TokenService,  private route: Router) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.storageService.isLoggedIn();
+    this.isLogged = this.tokenService.isLogged();
 
-    if (this.isLoggedIn) {
-      const user = this.storageService.getUser();
+    if (this.isLogged) {
+      const user = this.tokenService.getUser();
       this.roles = user.roles;
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
     }

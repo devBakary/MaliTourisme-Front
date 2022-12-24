@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../Service/user.service';
 
-  // const token = 'auth-user';
+  const token = 'auth-user';
 
 @Injectable({
   providedIn: 'root'
@@ -9,31 +10,54 @@ import { Router } from '@angular/router';
 export class TokenService {
 
 
+  constructor(private router: Router, private us: UserService) { }
 
-  constructor(private router: Router) { }
 
-  saveToken(token: string): void{
-    localStorage.setItem('token', token)
+    saveToken(token: any): void{
+    window.localStorage.setItem('token', JSON.stringify(token))
     this.router.navigate(['/navbar/accueil'])
   }
 
+
+
   //methode pour recuperer le token dans le localstorage
   isLogged(): boolean{
-    const token = localStorage.getItem('token')
-    console.log(token)
+    const token = window.localStorage.getItem('token')
+    // console.log(token)
     return !! token
   }
-
   public getUser(): any {
-    const user = localStorage.getItem('token');
-    console.log("--------------------------Me",user);
-
+    const user = window.localStorage.getItem('token');
     if (user) {
+      console.log("iiiiiiiiiiiiiiiiiii", user);
       return JSON.parse(user);
     }
 
     return {};
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //methode pour supprimer le token
   logout(): void{

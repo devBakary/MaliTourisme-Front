@@ -5,6 +5,7 @@ import { Population } from '../class/population';
 import { Region } from '../class/region';
 import { RegionService } from '../Service/region.service';
 import { UserService } from '../Service/user.service';
+import { TokenService } from '../_services/token.service';
 
 @Component({
   selector: 'app-region',
@@ -19,13 +20,16 @@ export class RegionComponent implements OnInit {
   content?: string;
   img:any;
   message: any;
+  iduser:any
 
   maPop: any
 
   formmodule!: FormGroup;
+  currentUser: any;
+  isLogged= false;
 
   constructor(private userService: UserService, private service: RegionService,
-    private formB: FormBuilder,) { }
+    private formB: FormBuilder, private tokenService: TokenService) { }
 
     //pour la region
   ajoutRegion: Region ={
@@ -57,6 +61,7 @@ export class RegionComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.isLogged = this.tokenService.isLogged();
     this.userService.getAdminBoard().subscribe({
       next: data => {
         this.content = data;
@@ -69,6 +74,7 @@ export class RegionComponent implements OnInit {
         }
       }
     });
+    this.currentUser = this.tokenService.getUser();
 
     this.formmodule = this.formB.group({
       img: ["", Validators.required],
@@ -84,23 +90,22 @@ export class RegionComponent implements OnInit {
    //liste des popul
    this.service.listePop().subscribe(data =>{
     this.maPop = data
+    console.log(this.maPop);
+
 
     console.log('listess___', data);
 
    })
   }
 
-  //ajout de la region
-    // getRegionFormData(data: any){
-    //   console.warn(data)
-    //   console.log("-----------------------------h")
-    //   this.service.ajouter(data).subscribe((data)=>{
-    //     console.log()
-    //     this.ajoutRegion =data
-    //     console.warn(data)
-    //     console.log("-----------------------------h")
-    //   })
-    // }
+  supprimer(id: number){
+    this.service.supRegion(id).subscribe(data =>{
+      this.reloadPage()
+      console.log("hhhhhhhhhhh", data);
+
+
+    })
+  }
 
     filechange(event: any){
       this.img = event.target.files[0]
@@ -113,7 +118,6 @@ export class RegionComponent implements OnInit {
       this.service.ajoutRegions(this.activite, this.coderegion, this.description, this.img,
                                this.nom,this.langue,  this.superficie).subscribe(
                                   (data)=>{
-                                  console.log('eeeeeeeeeeeeeeeeeeeeee',data);
                                   this.ajoutRegion = data;
                                   this.reloadPage()
 
