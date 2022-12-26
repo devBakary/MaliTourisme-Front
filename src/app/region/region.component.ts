@@ -6,6 +6,7 @@ import { Region } from '../class/region';
 import { RegionService } from '../Service/region.service';
 import { UserService } from '../Service/user.service';
 import { TokenService } from '../_services/token.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-region',
@@ -99,12 +100,27 @@ export class RegionComponent implements OnInit {
   }
 
   supprimer(id: number){
-    this.service.supRegion(id).subscribe(data =>{
-      this.reloadPage()
-      console.log("hhhhhhhhhhh", data);
 
+      swal.fire({
+        title: 'Voulez-vous vraiment supprimer?',
+        text: "Vous ne pourrez plus le recuperer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui, effacer!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.service.supRegion(id).subscribe(data =>{
+            this.reloadPage() })
+          swal.fire(
+            'Effacer!',
+            'Supprimer avec success',
+            'success'
+          )
+        }
+      })
 
-    })
   }
 
     filechange(event: any){
@@ -123,7 +139,19 @@ export class RegionComponent implements OnInit {
 
                                   this.message = "ajouter avec success!"
           })
+          swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Region ajouter avec succes',
+            text:'Veuillez ajouter une population',
+            showConfirmButton: false,
+            timer: 1800
+
+          }).then((result) => {
+            this.reloadPage()
+           })
     }
+
 
     resetForm(){
       this.annee='',

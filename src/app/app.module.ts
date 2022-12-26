@@ -35,7 +35,7 @@ import { DetailRegionComponent } from './detail-region/detail-region.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [TokenInterceptorProviders],
   bootstrap: [AppComponent]

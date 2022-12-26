@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Commentaire } from '../class/commentaire';
 import { RegionService } from '../Service/region.service';
 import { TokenService } from '../_services/token.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detail-region',
@@ -22,8 +23,8 @@ export class DetailRegionComponent implements OnInit {
   constructor(
     private service: RegionService,
     private route: ActivatedRoute,
-    private tokenService: TokenService,
-    private routes: Router) { }
+    private tokenService: TokenService
+    ) { }
 
 
   ajoutCommentaire: Commentaire={
@@ -82,15 +83,34 @@ export class DetailRegionComponent implements OnInit {
 
   //ajout des commentaires
   getCommentData(data : any){
-    this.ajoutCommentaire.description = this.description
-    this.service.ajoutCom(data, this.id, this.iduser).subscribe(data=>{
-      this.routes.navigate(['/detail', this.id])
-
+    swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.ajoutCommentaire.description = this.description
+        this.service.ajoutCom(data, this.id, this.iduser).subscribe(data=>{
+          this.reloadPage();
+        })
+        swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        swal.fire('Changes are not saved', '', 'info')
+      }
     })
+
   }
+
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+  submit(){
+    swal.fire("hhh")
   }
 
 }
